@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+//Third example
+function timedText() {
+    var x = document.getElementById('txt');
+    var t1 = setTimeout(function(){x.value = "2 seconds"},2000);
+    var t2 = setTimeout(function(){x.value = "4 seconds"},4000);
+    var t3 = setTimeout(function(){x.value = "6 seconds"},6000);
+	
+}
+//CLock Fourth Example
+function startTime() {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('time').innerHTML = h+":"+m+":"+s;
+    var t = setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+</head>
+<body onload="startTime()">
+<h2>The setInterval() Method</h2>
+<p>A script on this page starts this clock:</p>
+
+<p id="demo"></p>
+
+<script>
+var myVar=setInterval(function(){myTimer()},1000);
+
+function myTimer() {
+var d = new Date();
+document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
+</script>
+<hr>
+<h2>How to Stop the Execution?</h2>
+<p>The clearInterval() method is used to stop further executions of the function specified in the setInterval() method.</p>
+<button onclick="clearInterval(myVar)">Stop time</button><br>
+
+
+<hr>
+<h2>The setTimeout() Method</h2>
+<p>Click "Try it". Wait 3 seconds. The page will alert "Hello".</p>
+<p>Click "Stop" to prevent the first function to execute.</(p>
+<p>(You must click "Stop" before the 3 seconds are up.)</p>
+
+<button onclick="myVar = setTimeout(function(){alert('Hello')},3000)">Try it</button> 
+&nbsp;
+<button onclick="clearTimeout(myVar)">Stop</button>
+
+
+<hr>
+<!-- Third Example -->
+<form>
+<input type="button" value="Try it" onclick="timedText()" />
+<input type="text" id="txt" />
+</form>
+<p>Click on "Try it". The input field display when two, four, and six seconds have passed.</p>
+
+<hr>
+<div id="time"></div>
+</body>
+</html>

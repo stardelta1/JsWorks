@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body id="body">
+<div >
+	<h1 id="divId" style=" text-decoration:blink">Web View</h1>
+</div>
+<script>
+function o(obj){
+	return document.getElementById(obj);	
+}
+function s(obj){
+	return o(obj).style;	
+}
+
+function resize(){
+		// get the width.. more cross-browser issues
+    width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+    // now we should have it
+    if (width < 400) {
+        o("divId").innerHTML="Mobile View";
+		s("body").background = "gold";
+    } else if (width <= 800) {
+        o("divId").innerHTML="Tab View";
+		s("body").background = "orange";
+    }else{
+        o("divId").innerHTML="Web View";
+		s("body").background = "yellow";
+    }
+}
+// now call it when the window is resized.
+window.onresize = function () {
+	resize();
+};
+window.onload = function () {
+	resize();
+}();
+</script>
+</body>
+</html>

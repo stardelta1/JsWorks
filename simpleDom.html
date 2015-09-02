@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Changing HTML Style</h2>
+<p id="p1">Hello World!</p>
+<p id="p2">Hello World!</p>
+
+<script>
+document.getElementById("p2").style.color = "blue";
+document.getElementById("p2").style.fontFamily = "Arial";
+document.getElementById("p2").style.fontSize = "larger";
+</script>
+
+<p>The paragraph above was changed by a script.</p>
+<hr>
+<h2>Using Events</h2>
+<h1 id="id1">My Heading 1</h1>
+<button type="button" 
+onclick="document.getElementById('id1').style.color = 'red'">Click Me!</button>
+<hr>
+<h3>Visibility</h3>
+<p id="p3">
+This is a text.
+This is a text.
+This is a text.
+This is a text.
+</p>
+
+<input type="button" value="Hide text" onclick="document.getElementById('p3').style.visibility='hidden'">
+<input type="button" value="Show text" onclick="document.getElementById('p3').style.visibility='visible'">
+</body>
+</html>

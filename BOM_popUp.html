@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>Click the button to display an <b>alert box:</b></p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+    alert("I am an alert box!");
+}
+</script>
+<hr>
+
+
+<p>Click the button to display a <b>confirm box</b>.</p>
+
+<button onclick="myFunction1()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction1() {
+    var x;
+    if (confirm("Press a button!") == true) {
+        x = "You pressed OK!";
+    } else {
+        x = "You pressed Cancel!";
+    }
+    document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+
+<hr>
+
+<p>Click the button to demonstrate the <strong>prompt box</strong>.</p>
+
+<button onclick="myFunction2()">Try it</button>
+
+<p id="demo2"></p>
+
+<script>
+function myFunction2() {
+    var x;
+    var person = prompt("Please enter your name","");
+    if (person != null) {
+        document.getElementById("demo2").innerHTML =
+        "Hello " + person + "! How are you today?";
+    }
+}
+</script>
+</body>
+</html>

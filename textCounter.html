@@ -1,0 +1,22 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript"> 
+var maxAmount = 600;
+function textCounter(textField, showCountField) {
+    if (textField.value.length > maxAmount) {
+        textField.value = textField.value.substring(0, maxAmount);
+	} else { 
+        showCountField.value = maxAmount - textField.value.length;
+	}
+}
+</script>
+</head>
+<body>
+<form>
+<textarea name="ta" cols="100" rows="35"  onKeyDown="textCounter(this.form.ta,this.form.countDisplay);" onKeyUp="textCounter(this.form.ta,this.form.countDisplay);"></textarea>
+<br>
+<input readonly type="text" name="countDisplay" size="3" maxlength="3" value="600"> Characters Remaining
+</form>
+</body>
+</html> 
+

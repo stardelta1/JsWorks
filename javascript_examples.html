@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+function bgChange(bg) {
+    document.body.style.background = bg;
+}
+
+//Temperature Conversion
+function convert(degree) {
+    if (degree == "C") {
+        F = document.getElementById("c").value * 9 / 5 + 32;
+        document.getElementById("f").value = Math.round(F);
+    } else	{
+        C = (document.getElementById("f").value -32) * 5 / 9;
+        document.getElementById("c").value = Math.round(C);
+    }
+}
+//Events
+function myFunction3() {
+	for(i=1; i<10; i++){
+	
+	var x = document.getElementById("fname"+i);
+   	x.value = x.value.toUpperCase();
+    }
+}
+function myFunction4(x) {//onFocus
+    x.style.background = "yellow";
+}
+function writeMessage() {//onKeyUp
+    document.forms[0].mySecondInput.value = document.forms[0].myInput.value;
+}
+</script>
+</head>
+
+<body>
+<p>Insert a number into one of the input fields below:</p>
+<input id="c" onkeyup="convert('C')"> degrees Celsius<br>
+equals<br> 
+<input id="f" onkeyup="convert('F')"> degrees Fahrenheit 
+
+<p>Note that the <b>Math.round()</b> method is used, so that the result will be returned as an integer.</p>
+<hr>
+<h2>Change background color</h2>
+<p>onClick on the squares! &nbsp;|&nbsp; onDbClick to go back to Default </p>
+
+<table style="width:300px;height:100px">
+  <tr>
+    <td onClick="bgChange(this.style.backgroundColor)" 
+      	onDblClick="bgChange('transparent')"
+        style="background-color:Khaki">
+    </td>
+    <td onClick="bgChange(this.style.backgroundColor)" 
+        onDblClick="bgChange('transparent')"
+        style="background-color:PaleGreen">
+    </td>
+    <td onClick="bgChange(this.style.backgroundColor)" 
+    	onDblClick="bgChange('transparent')"
+        style="background-color:Silver">
+    </td>
+  </tr>
+</table>
+<hr>
+<p>Enter names in the fields, then click "Submit" to submit the form:</p>
+
+<form id="frm1">
+First name: <input type="text" name="irstfname"><br>
+Last name: <input type="text" name="lastname"><br><br>
+<input type="button" onclick="myFunction2()" value="Submit">
+</form>
+<p id="names"></p>
+<script>
+function myFunction2() {
+	document.getElementById("frm1").submit();
+	fname = document.getElementsByName("firstname").value;
+	lname = document.getElementsByName("lastname").value;
+	fulname = function (){ document.getElementById("names").innerHTML = "Welcome "+ fname +" "+ lname};
+    
+}
+</script>
+<hr>
+<h2>DOM Events</h2>
+<form>
+onBlur: <input type="text" id="fname1" onBlur="myFunction3()">
+<p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+onChange: <input type="text" id="fname2" onchange="myFunction3()">
+<p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+onFocus: <input type="text" onfocus="myFunction4(this)">
+<p>When the input field gets focus, a function is triggered which changes the background-color.</p>
+onKeyDown: <input type="text" onkeydown="myFunction4(this)"> 
+<p>A function is triggered when the user is pressing a key in the input field.</p>
+onKeyUp: <input type="text" name="myInput" onkeyup="writeMessage()" size="20">
+<input type="text" name="mySecondInput" size="20"><br>
+onKeyUp: <input type="text" id="fname3" onkeyup="myFunction3()">
+<p>The onkeyup event occurs when the a keyboard key is on it's way UP.</p>
+
+</form>
+</body>
+
+<!-- Mirrored from www.w3schools.com/js/tryit.asp?filename=tryjs_dom_css_bgcolor by HTTrack Website Copier/3.x [XR&CO'2013], Fri, 06 Jun 2014 13:24:31 GMT -->
+</html>

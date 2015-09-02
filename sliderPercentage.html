@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+#dialogoverlay{
+	
+	opacity: .8;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: #FFF;
+	width: 420px;
+	
+}
+#dialogbox{
+	
+	position: fixed;
+	background: #000;
+	border-radius:7px; 
+	width:420px;
+	
+}
+#dialogbox > div{ background:#FFF; margin:8px; }
+#dialogbox > div > #dialogboxbody{ background:#333; padding:20px; color:#FFF; }
+</style>
+
+<script type="text/javascript">
+
+function sliderChange(val) {
+		var val = document.getElementById('sliderStatus').innerHTML = val;
+}
+</script> 
+</head>
+<body>
+
+<div id="dialogoverlay">
+	<div id="dialogbox">
+	<div id="dialogboxbody">
+	<h2> Percentage Slider</h2>
+
+<p>Interest Rate: <span id="sliderStatus">10</span>%<br/>
+<input id="interest_rate" type="range" min="0" max="100" value="10" step="1" onchange="sliderChange(this.value)" style="width: 400px;"></p>
+
+</div>
+</div>
+</div>
+</body>
+</html>
